@@ -9,13 +9,10 @@ does not return anything but removes any duplicate elements from the array.
 
    
  */
-
-
-// WRITE YOUR FUNCTION HERE
-
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 
-removeDuplicates(letter);
+function removeDuplicates(arr) {
+  return arr.filter((a, b) => arr.indexOf(a) === b)
+};
 
-if (letters === ['a', 'b', 'c', 'd', 'e', 'f'])
-  console.log("Hooray!")
+console.log(removeDuplicates(letters));
