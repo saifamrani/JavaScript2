@@ -26,25 +26,29 @@ Don't you just love the thrill of the lottery? What if I told you we can make ou
 
 */
 
-function threeFive(startIndex, stopIndex, threeCallback = 3, fiveCallback = 5) {
+function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
   const numbers = [];
-  const sayWhat = [];
 
-  for (let i = startIndex; i <= stopIndex; i++) {
-    numbers.push(i);
+  for (let currentIndex = startIndex; currentIndex <= stopIndex; currentIndex++) {
+    numbers.push(currentIndex);
   }
-  for (let i = 0; i < numbers.length; i++) {
-    if (i % threeCallback === 0) {
-      sayWhat.push("three");
+  numbers.forEach(item => {
+    if (item % 3 === 0 && item % 5 === 0) {
+      console.log(item + ' is divisible by both ' + threeCallback() + ' and ' + fiveCallback());
+    } else if (item % 3 === 0) {
+      console.log(item + ' is divisible by ' + threeCallback());
+    } else if (item % 5 === 0) {
+      console.log(item + ' is divisible by ' + fiveCallback());
     }
-    else if (i % fiveCallback === 0) {
-      sayWhat.push("five");
-    }
-  }
-  return numbers + "\n" + sayWhat;
+  });
 }
-
-console.log(threeFive(10, 15, threeFive, threeFive));
+function sayThree() {
+  return 3;
+}
+function sayFive() {
+  return 5;
+}
+threeFive(10, 15, sayThree, sayFive);
 
 // Should create an array [10,11,12,13,14,15]
 // and call sayFive, sayThree, sayThree, sayFive
