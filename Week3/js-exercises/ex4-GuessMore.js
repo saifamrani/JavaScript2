@@ -30,3 +30,8 @@ function f2(val) {
 // when we call the function it will increase the obj y so the output will be 10 
 f2(y);
 console.log(y);
+
+/* 
+when (x) is passed as an argument of (f1) it will not change the original value of (x) becouse the function will only get to know the value not the argument location.
+but when (y) object passed as an argument to (f2) function (that the argument key value ) it will alson change the value of (y) becouse if the function changes an object property it will chaange the orignail value as well .
+*/
